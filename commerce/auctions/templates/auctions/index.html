@@ -1,0 +1,29 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2>Active Listings</h2>
+<div>
+    <div class="row row-cols-1 g-4" style="margin-top: 36px; margin-left: 1px;">
+        {% for listing in listings %}
+        <div class="col mb-4" style="width: 100%;">
+            <div class="card h-100" style="display: flex; flex-direction: row; height: 225px;">
+                <div style="width: 33%; height: 225px;">
+                    <img src="{{listing.image}}"  style="width: 100%; height: 225px; object-fit:cover;"
+                    alt="Listing photo">
+                </div>
+                <div style="width: 67%; height: 128px">
+                    <div class="card-header text-truncate h5" style="width: 100%;">{{listing.title}}</div>
+                    <h6 class="text-muted" style="margin: 24px 24px;">Price: ${{listing.price}}</h6>
+                    <p class="text-muted" style="margin: 24px 24px;">Created {{listing.date}}</p>
+                    <a href="{% url 'listing' listing.id %}" class="btn btn-outline-secondary" style="margin: 0 24px;">View</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="alert alert-dark" role="alert">
+            There are not active listings.
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
