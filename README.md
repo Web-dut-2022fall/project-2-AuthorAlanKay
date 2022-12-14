@@ -4,7 +4,7 @@
 
 项目重点：
 
-commeerce 文件夹
+commerce 文件夹
 
 本地运行:
 
